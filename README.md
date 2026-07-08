@@ -1,3 +1,11 @@
+# Schism Tracker - Widescreen fork
+
+![screenshot](screenshot.png)
+
+A fork of Schism Tracker so it looks pretty fullscreened on widescreen monitors. Needs the SDL3 backend.
+
+---
+
 # Schism Tracker
 
 Schism Tracker is a free and open-source reimplementation of [Impulse
