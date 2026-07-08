@@ -77,6 +77,7 @@ static void (SDLCALL *sdl3_WarpMouseInWindow)(SDL_Window * window, float x, floa
 static bool (SDLCALL *sdl3_GetWindowSize)(SDL_Window * window, int *w, int *h);
 static bool (SDLCALL *sdl3_SetWindowSize)(SDL_Window * window, int w, int h);
 static bool (SDLCALL *sdl3_RenderClear)(SDL_Renderer * renderer);
+static bool (SDLCALL *sdl3_SetRenderDrawColor)(SDL_Renderer * renderer, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 static bool (SDLCALL *sdl3_LockTexture)(SDL_Texture * texture, const SDL_Rect * rect, void **pixels, int *pitch);
 static void (SDLCALL *sdl3_UnlockTexture)(SDL_Texture * texture);
 static bool (SDLCALL *sdl3_RenderTexture)(SDL_Renderer * renderer, SDL_Texture * texture, const SDL_FRect * srcrect, const SDL_FRect * dstrect);
@@ -822,6 +823,7 @@ SCHISM_HOT static void sdl3_video_blit(void)
 			dstrect.h = cfg_video_want_fixed_height;
 		}
 
+		sdl3_SetRenderDrawColor(video.u.r.renderer, 180, 148, 120, 0); // FIXME hard-coded :(
 		sdl3_RenderClear(video.u.r.renderer);
 
 		while (!sdl3_LockTexture(video.u.r.texture, NULL, (void **)&pixels, &pitch))
@@ -990,6 +992,7 @@ static int sdl3_video_load_syms(void)
 	SCHISM_SDL3_SYM(GetWindowSize);
 	SCHISM_SDL3_SYM(SetWindowSize);
 	SCHISM_SDL3_SYM(RenderClear);
+	SCHISM_SDL3_SYM(SetRenderDrawColor);
 	SCHISM_SDL3_SYM(LockTexture);
 	SCHISM_SDL3_SYM(UnlockTexture);
 	SCHISM_SDL3_SYM(RenderTexture);
