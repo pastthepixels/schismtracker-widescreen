@@ -1511,14 +1511,14 @@ void redraw_screen(void)
 	if (!ACTIVE_PAGE.draw_full) {
 		draw_fill_chars(0,0,79,49, DEFAULT_FG,2);
 
-		/* border around the whole screen */
-		draw_char(128, 0, 0, 3, 2);
-		for (n = 79; n > 49; n--)
-			draw_char(129, n, 0, 3, 2);
-		do {
-			draw_char(129, n, 0, 3, 2);
-			draw_char(131, 0, n, 3, 2);
-		} while (--n);
+		// /* border around the whole screen */
+		// draw_char(128, 0, 0, 3, 2);
+		// for (n = 79; n > 49; n--)
+		// 	draw_char(129, n, 0, 3, 2);
+		// do {
+		// 	draw_char(129, n, 0, 3, 2);
+		// 	draw_char(131, 0, n, 3, 2);
+		// } while (--n);
 
 		draw_top_info_const();
 		redraw_top_info();
