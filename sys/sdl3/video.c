@@ -824,12 +824,10 @@ SCHISM_HOT static void sdl3_video_blit(void)
 		}
 
 		
-		sdl3_RenderClear(video.u.r.renderer);
-
 		while (!sdl3_LockTexture(video.u.r.texture, NULL, (void **)&pixels, &pitch))
 			timer_msleep(10);
 
-		sdl3_SetRenderDrawColor(video.u.r.renderer, pixels[2], pixels[1], pixels[0], 0); // FIXME hard-coded :(
+		sdl3_SetRenderDrawColor(video.u.r.renderer, pixels[2], pixels[1], pixels[0], 0);
 		sdl3_RenderClear(video.u.r.renderer);
 
 		switch (video.format) {
